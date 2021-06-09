@@ -1,9 +1,8 @@
 package com.example.http.controller;
 
-import com.dtflys.forest.annotation.JSONBody;
 import com.example.http.forrest.JsonForest2Client;
 import com.example.http.forrest.JsonForestClient;
-import com.example.http.forrest.MyUser;
+import com.example.http.pojo.MyUserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,11 +28,11 @@ public class JsonForestController {
     private JsonForest2Client jsonForest2Client;
 
     @RequestMapping("/testRegister")
-    public Object testRegister(@RequestBody MyUser user) {
+    public Object testRegister(@RequestBody MyUserDto user) {
         return jsonForestClient.registerUser(user);
     }
     @RequestMapping("/register")
-    public Object register(@RequestBody MyUser user) {
+    public Object register(@RequestBody MyUserDto user) {
         user.setName(new StringJoiner("-",user.getName(),"test").toString());
         return user;
     }

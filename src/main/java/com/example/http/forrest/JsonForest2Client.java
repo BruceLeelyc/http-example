@@ -4,6 +4,7 @@ import com.dtflys.forest.annotation.BaseRequest;
 import com.dtflys.forest.annotation.Get;
 import com.dtflys.forest.annotation.JSONBody;
 import com.dtflys.forest.annotation.Post;
+import com.example.http.pojo.MyUserDto;
 
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public interface JsonForest2Client {
             "Accept:application/json"
         }
     )
-    String registerUser(@JSONBody MyUser user);
+    String registerUser(@JSONBody MyUserDto user);
 
     /**
      * 将Map类型参数解析为JSON字符串，并放在请求的Body进行传输
